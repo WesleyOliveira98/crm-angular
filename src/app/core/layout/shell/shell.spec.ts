@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { Shell } from './shell';
 
@@ -6,7 +7,7 @@ describe('Shell', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [Shell],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideHttpClient()],
     });
   });
 

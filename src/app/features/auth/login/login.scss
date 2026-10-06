@@ -1,0 +1,48 @@
+.login-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background: var(--ink);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.stripe {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--stage-new) 0 25%,
+    var(--stage-qualified) 25% 50%,
+    var(--stage-proposal) 50% 75%,
+    var(--stage-won) 75%
+  );
+}
+
+.subtitle {
+  margin: 0.25rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.alert {
+  margin: 0 0 1rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  background: #fbeceb;
+  color: var(--danger);
+}
+
+.submit {
+  width: 100%;
+  justify-content: center;
+}

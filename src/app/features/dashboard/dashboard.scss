@@ -1,0 +1,83 @@
+.funnel {
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.ribbon {
+  display: flex;
+  height: 14px;
+  border-radius: 3px;
+  overflow: hidden;
+  gap: 2px;
+
+  span {
+    flex-basis: 0;
+    min-width: 4px;
+  }
+
+  .new {
+    background: var(--stage-new);
+  }
+  .qualified {
+    background: var(--stage-qualified);
+  }
+  .proposal {
+    background: var(--stage-proposal);
+  }
+  .won {
+    background: var(--stage-won);
+  }
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--paper);
+  }
+
+  .money {
+    font-size: 1.35rem;
+  }
+
+  .count {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 960px) {
+  .stages,
+  .kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .stages,
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}

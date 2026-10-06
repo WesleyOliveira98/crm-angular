@@ -1,0 +1,79 @@
+<div class="page-header">
+  <div>
+    <h1>Dashboard</h1>
+    <p>
+      @if (loading()) {
+        Visão geral do funil de vendas.
+      } @else {
+        {{ opportunities().length }} oportunidades em {{ customersCount() }} clientes.
+      }
+    </p>
+  </div>
+</div>
+
+@if (loading()) {
+  <p class="loading">Carregando indicadores...</p>
+} @else if (error()) {
+  <p class="empty">
+    Não foi possível carregar o dashboard. Confira se a API está rodando e recarregue a página.
+  </p>
+} @else {
+  <section class="card funnel">
+    <h2>Pipeline por estágio</h2>
+
+    <div class="ribbon" aria-hidden="true">
+      @for (stage of stages(); track stage.value) {
+        <span [class]="stage.value" [style.flex-grow]="stage.share"></span>
+      }
+    </div>
+
+    <div class="stages">
+      @for (stage of stages(); track stage.value) {
+        <a class="stage" routerLink="/opportunities" [queryParams]="{ stage: stage.value }">
+          <app-stage-badge [stage]="stage.value" />
+          <span class="money">{{ stage.amount | currency: 'BRL' : 'symbol' : '1.0-0' }}</span>
+          <span class="count">
+            {{ stage.count }} {{ stage.count === 1 ? 'oportunidade' : 'oportunidades' }} ·
+            {{ stage.share | number: '1.0-0' }}%
+          </span>
+        </a>
+      }
+    </div>
+  </section>
+
+  <div class="kpis">
+    <app-kpi-card label="Leads" hint="Oportunidades no estágio Novo">{{ leads() }}</app-kpi-card>
+    <app-kpi-card label="Pipeline" hint="Soma das oportunidades abertas">
+      {{ pipeline() | currency: 'BRL' : 'symbol' : '1.0-0' }}
+    </app-kpi-card>
+    <app-kpi-card label="Receita prevista" hint="Valor × probabilidade das abertas">
+      {{ forecast() | currency: 'BRL' : 'symbol' : '1.0-0' }}
+    </app-kpi-card>
+    <app-kpi-card label="Taxa de conversão" hint="Ganhas sobre o total">
+      {{ conversionRate() | number: '1.0-1' }}%
+    </app-kpi-card>
+  </div>
+
+  <h2 class="section-title">Últimas oportunidades</h2>
+  <div class="table-wrapper">
+    <table class="table">
+      <tbody>
+        @for (opportunity of recent(); track opportunity.id) {
+          <tr>
+            <td>
+              <a [routerLink]="['/opportunities', opportunity.id]">{{ opportunity.title }}</a>
+            </td>
+            <td>{{ opportunity.customer?.company }}</td>
+            <td><app-stage-badge [stage]="opportunity.stage" /></td>
+            <td class="right money">{{ opportunity.value | currency }}</td>
+            <td class="right">{{ opportunity.createdAt | date: 'dd/MM' }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td class="empty">Nenhuma oportunidade cadastrada ainda.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

@@ -24,18 +24,33 @@
 }
 
 .logo {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius);
-  background: linear-gradient(
-    90deg,
-    var(--stage-new) 0 25%,
-    var(--stage-qualified) 25% 50%,
-    var(--stage-proposal) 50% 75%,
-    var(--stage-won) 75%
-  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 24px;
+
+  span {
+    height: 4px;
+    border-radius: 1px;
+  }
+
+  span:nth-child(1) {
+    width: 100%;
+    background: var(--stage-new);
+  }
+  span:nth-child(2) {
+    width: 78%;
+    background: var(--stage-qualified);
+  }
+  span:nth-child(3) {
+    width: 56%;
+    background: var(--stage-proposal);
+  }
+  span:nth-child(4) {
+    width: 34%;
+    background: var(--stage-won);
+  }
 }
 
 nav {

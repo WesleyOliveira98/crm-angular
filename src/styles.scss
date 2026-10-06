@@ -163,6 +163,7 @@ a {
 }
 
 .table-wrapper {
+  position: relative;
   overflow-x: auto;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -231,7 +232,7 @@ a {
 
 .detail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 1.25rem;
 
   h2 {
@@ -251,6 +252,8 @@ a {
 
   dd {
     margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 }
 

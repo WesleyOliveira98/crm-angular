@@ -1,0 +1,96 @@
+<div class="page-header">
+  <div>
+    <h1>{{ id ? 'Editar oportunidade' : 'Nova oportunidade' }}</h1>
+    <p>Os campos marcados com * são obrigatórios.</p>
+  </div>
+</div>
+
+<form class="card form" [formGroup]="form" (ngSubmit)="save()">
+  <div class="field full">
+    <label for="title">Título *</label>
+    <input id="title" class="input" formControlName="title" placeholder="Ex.: Implantação do ERP" />
+    @if (showError('title', 'required')) {
+      <span class="error">Informe o título.</span>
+    }
+    @if (showError('title', 'minlength')) {
+      <span class="error">O título precisa ter pelo menos 3 letras.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="customer">Cliente *</label>
+    <select id="customer" class="input" formControlName="customerId">
+      <option [ngValue]="null" disabled>Selecione um cliente</option>
+      @for (customer of customers(); track customer.id) {
+        <option [ngValue]="customer.id">{{ customer.company }} ({{ customer.name }})</option>
+      }
+    </select>
+    @if (showError('customerId', 'required')) {
+      <span class="error">Escolha o cliente.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="email">E-mail de contato *</label>
+    <input id="email" class="input" type="email" formControlName="contactEmail" />
+    @if (showError('contactEmail', 'required')) {
+      <span class="error">Informe o e-mail.</span>
+    }
+    @if (showError('contactEmail', 'email')) {
+      <span class="error">Digite um e-mail válido.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="value">Valor (R$) *</label>
+    <input id="value" class="input" type="number" min="0" step="100" formControlName="value" />
+    @if (showError('value', 'required')) {
+      <span class="error">Informe o valor.</span>
+    }
+    @if (showError('value', 'min')) {
+      <span class="error">O valor precisa ser maior que zero.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="stage">Estágio *</label>
+    <select id="stage" class="input" formControlName="stage">
+      @for (stage of stages; track stage.value) {
+        <option [value]="stage.value">{{ stage.label }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="probability">Probabilidade (%) *</label>
+    <input
+      id="probability"
+      class="input"
+      type="number"
+      min="0"
+      max="100"
+      formControlName="probability"
+    />
+    @if (showError('probability', 'required')) {
+      <span class="error">Informe a probabilidade.</span>
+    }
+    @if (showError('probability', 'min') || showError('probability', 'max')) {
+      <span class="error">Use um valor entre 0 e 100.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="close">Fechamento previsto *</label>
+    <input id="close" class="input" type="date" formControlName="expectedCloseDate" />
+    @if (showError('expectedCloseDate', 'required')) {
+      <span class="error">Informe a data.</span>
+    }
+  </div>
+
+  <div class="buttons full">
+    <a class="btn" [routerLink]="id ? ['/opportunities', id] : '/opportunities'">Cancelar</a>
+    <button class="btn btn-primary" type="submit" [disabled]="saving()">
+      {{ saving() ? 'Salvando...' : 'Salvar' }}
+    </button>
+  </div>
+</form>

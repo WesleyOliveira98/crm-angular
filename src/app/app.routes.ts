@@ -16,6 +16,11 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () => import('./features/dashboard/dashboard').then((m) => m.Dashboard),
       },
+      {
+        path: 'opportunities',
+        loadChildren: () =>
+          import('./features/opportunities/opportunities.routes').then((m) => m.OPPORTUNITY_ROUTES),
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

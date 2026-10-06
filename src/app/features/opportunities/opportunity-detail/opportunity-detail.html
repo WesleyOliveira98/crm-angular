@@ -1,0 +1,57 @@
+@if (opportunity(); as opportunity) {
+  <div class="page-header">
+    <div>
+      <a class="back" routerLink="/opportunities">← Oportunidades</a>
+      <h1>{{ opportunity.title }}</h1>
+      <p>{{ opportunity.customer?.company }}</p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-danger" type="button" (click)="remove()">Excluir</button>
+      <a class="btn btn-primary" [routerLink]="['/opportunities', opportunity.id, 'edit']"
+        >Editar</a
+      >
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Negociação</h2>
+      <dl>
+        <dt>Estágio</dt>
+        <dd><app-stage-badge [stage]="opportunity.stage" /></dd>
+        <dt>Valor</dt>
+        <dd class="money">{{ opportunity.value | currency }}</dd>
+        <dt>Probabilidade</dt>
+        <dd class="mono">{{ opportunity.probability }}%</dd>
+        <dt>Receita prevista</dt>
+        <dd class="money">{{ (opportunity.value * opportunity.probability) / 100 | currency }}</dd>
+        <dt>Fechamento previsto</dt>
+        <dd>{{ opportunity.expectedCloseDate | date: 'dd/MM/yyyy' }}</dd>
+        <dt>Criada em</dt>
+        <dd>{{ opportunity.createdAt | date: 'dd/MM/yyyy' }}</dd>
+      </dl>
+    </section>
+
+    @if (opportunity.customer; as customer) {
+      <section class="card">
+        <h2>Cliente</h2>
+        <dl>
+          <dt>Empresa</dt>
+          <dd>
+            <a [routerLink]="['/customers', customer.id]">{{ customer.company }}</a>
+          </dd>
+          <dt>Contato</dt>
+          <dd>{{ customer.name }}</dd>
+          <dt>E-mail da oportunidade</dt>
+          <dd>{{ opportunity.contactEmail }}</dd>
+          <dt>Telefone</dt>
+          <dd>{{ customer.phone }}</dd>
+          <dt>Cidade</dt>
+          <dd>{{ customer.city }}</dd>
+        </dl>
+      </section>
+    }
+  </div>
+} @else {
+  <p class="loading">Carregando oportunidade...</p>
+}

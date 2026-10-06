@@ -1,0 +1,75 @@
+<div class="page-header">
+  <div>
+    <h1>Oportunidades</h1>
+    <p>Busque, filtre e acompanhe as negociações em andamento.</p>
+  </div>
+  <a class="btn btn-primary" routerLink="/opportunities/new">Nova oportunidade</a>
+</div>
+
+<div class="filters">
+  <label class="sr-only" for="search">Buscar</label>
+  <input
+    id="search"
+    class="input"
+    type="search"
+    placeholder="Buscar por título, e-mail..."
+    [formControl]="searchControl"
+  />
+
+  <label class="sr-only" for="stage">Estágio</label>
+  <select id="stage" class="input" [formControl]="stageControl">
+    <option value="">Todos os estágios</option>
+    @for (stage of stages; track stage.value) {
+      <option [value]="stage.value">{{ stage.label }}</option>
+    }
+  </select>
+</div>
+
+<div class="table-wrapper" [class.is-loading]="loading()">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Cliente</th>
+        <th>Estágio</th>
+        <th class="right">Valor</th>
+        <th class="right">Prob.</th>
+        <th>Fechamento</th>
+        <th><span class="sr-only">Ações</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (opportunity of result().items; track opportunity.id) {
+        <tr>
+          <td>
+            <a [routerLink]="['/opportunities', opportunity.id]">{{ opportunity.title }}</a>
+          </td>
+          <td>{{ opportunity.customer?.company }}</td>
+          <td><app-stage-badge [stage]="opportunity.stage" /></td>
+          <td class="right money">{{ opportunity.value | currency }}</td>
+          <td class="right mono">{{ opportunity.probability }}%</td>
+          <td>{{ opportunity.expectedCloseDate | date: 'dd/MM/yyyy' }}</td>
+          <td class="right actions">
+            <a class="btn" [routerLink]="['/opportunities', opportunity.id, 'edit']">Editar</a>
+            <button class="btn btn-danger" type="button" (click)="remove(opportunity)">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  @if (loading() && result().items.length === 0) {
+    <p class="loading">Carregando oportunidades...</p>
+  } @else if (result().items.length === 0) {
+    <p class="empty">Nenhuma oportunidade encontrada. Tente outra busca ou crie uma nova.</p>
+  }
+</div>
+
+<app-pagination
+  [page]="filters().page"
+  [total]="result().total"
+  [pageSize]="pageSize"
+  (pageChange)="goToPage($event)"
+/>

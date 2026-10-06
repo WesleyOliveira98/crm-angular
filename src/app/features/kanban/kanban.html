@@ -1,0 +1,44 @@
+<div class="page-header">
+  <div>
+    <h1>Kanban</h1>
+    <p>Arraste os cards para mudar o estágio da oportunidade.</p>
+  </div>
+</div>
+
+@if (loading()) {
+  <p class="loading">Carregando pipeline...</p>
+} @else {
+  <div class="board" cdkDropListGroup>
+    @for (column of columns(); track column.value) {
+      <section class="column" [class]="column.value">
+        <header>
+          <h2>{{ column.label }}</h2>
+          <span class="count mono">{{ column.items.length }}</span>
+          <span class="total money">{{ column.total | currency: 'BRL' : 'symbol' : '1.0-0' }}</span>
+        </header>
+
+        <div
+          class="cards"
+          cdkDropList
+          [cdkDropListData]="column.value"
+          (cdkDropListDropped)="drop($event)"
+        >
+          @for (opportunity of column.items; track opportunity.id) {
+            <article class="card-item" cdkDrag [cdkDragData]="opportunity">
+              <a [routerLink]="['/opportunities', opportunity.id]">{{ opportunity.title }}</a>
+              <span class="company">{{ opportunity.customer?.company }}</span>
+              <div class="footer">
+                <span class="money">{{
+                  opportunity.value | currency: 'BRL' : 'symbol' : '1.0-0'
+                }}</span>
+                <span class="mono">{{ opportunity.probability }}%</span>
+              </div>
+            </article>
+          } @empty {
+            <p class="empty-column">Solte um card aqui</p>
+          }
+        </div>
+      </section>
+    }
+  </div>
+}

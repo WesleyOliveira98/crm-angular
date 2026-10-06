@@ -21,6 +21,10 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/opportunities/opportunities.routes').then((m) => m.OPPORTUNITY_ROUTES),
       },
+      {
+        path: 'kanban',
+        loadComponent: () => import('./features/kanban/kanban').then((m) => m.Kanban),
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

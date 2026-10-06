@@ -1,0 +1,574 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Wesley Oliveira",
+      "email": "admin@crm.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Mariana Costa",
+      "email": "mariana@crm.com",
+      "password": "123456"
+    },
+    {
+      "id": 3,
+      "name": "Rafael Souza",
+      "email": "rafael@crm.com",
+      "password": "123456"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Ana Paula Ribeiro",
+      "company": "Padaria Pão Dourado",
+      "email": "ana@padariapaodourado.com.br",
+      "phone": "(16) 98663-3471",
+      "city": "Franca",
+      "createdAt": "2025-11-18"
+    },
+    {
+      "id": 2,
+      "name": "Carlos Henrique Lima",
+      "company": "Calçados Passo Firme",
+      "email": "carlos@calcadospassofirme.com.br",
+      "phone": "(16) 99333-1791",
+      "city": "Franca",
+      "createdAt": "2026-05-02"
+    },
+    {
+      "id": 3,
+      "name": "Fernanda Martins",
+      "company": "Clínica Sorriso Leve",
+      "email": "fernanda@clinicasorrisoleve.com.br",
+      "phone": "(16) 99681-9779",
+      "city": "Ribeirão Preto",
+      "createdAt": "2026-04-21"
+    },
+    {
+      "id": 4,
+      "name": "João Pedro Alves",
+      "company": "Mercado Bom Preço",
+      "email": "joão@mercadobompreco.com.br",
+      "phone": "(16) 98748-1950",
+      "city": "Uberaba",
+      "createdAt": "2025-09-22"
+    },
+    {
+      "id": 5,
+      "name": "Juliana Ferreira",
+      "company": "Agro Vale Verde",
+      "email": "juliana@agrovaleverde.com.br",
+      "phone": "(16) 98439-1614",
+      "city": "Barretos",
+      "createdAt": "2026-04-25"
+    },
+    {
+      "id": 6,
+      "name": "Lucas Gabriel Rocha",
+      "company": "Tech Norte Sistemas",
+      "email": "lucas@technortesistemas.com.br",
+      "phone": "(16) 98888-7851",
+      "city": "São Paulo",
+      "createdAt": "2026-05-04"
+    },
+    {
+      "id": 7,
+      "name": "Patrícia Gomes",
+      "company": "Escola Saber Mais",
+      "email": "patrícia@escolasabermais.com.br",
+      "phone": "(16) 98492-2486",
+      "city": "Campinas",
+      "createdAt": "2025-11-03"
+    },
+    {
+      "id": 8,
+      "name": "Ricardo Nunes",
+      "company": "Transportes Rota Sul",
+      "email": "ricardo@transportesrotasul.com.br",
+      "phone": "(16) 98121-3028",
+      "city": "Curitiba",
+      "createdAt": "2026-02-14"
+    },
+    {
+      "id": 9,
+      "name": "Beatriz Carvalho",
+      "company": "Moda Bella",
+      "email": "beatriz@modabella.com.br",
+      "phone": "(16) 99291-2013",
+      "city": "Belo Horizonte",
+      "createdAt": "2025-11-17"
+    },
+    {
+      "id": 10,
+      "name": "Gustavo Pereira",
+      "company": "Construtora Alicerce",
+      "email": "gustavo@construtoraalicerce.com.br",
+      "phone": "(16) 98101-4622",
+      "city": "Goiânia",
+      "createdAt": "2026-05-16"
+    },
+    {
+      "id": 11,
+      "name": "Camila Barbosa",
+      "company": "Farmácia Vida",
+      "email": "camila@farmaciavida.com.br",
+      "phone": "(16) 99140-3181",
+      "city": "Franca",
+      "createdAt": "2026-01-11"
+    },
+    {
+      "id": 12,
+      "name": "Thiago Mendes",
+      "company": "Auto Peças Turbo",
+      "email": "thiago@autopecasturbo.com.br",
+      "phone": "(16) 98858-3363",
+      "city": "Ribeirão Preto",
+      "createdAt": "2025-09-05"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "Controle de frota",
+      "customerId": 2,
+      "contactEmail": "carlos@calcadospassofirme.com.br",
+      "value": 24000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-07-29",
+      "createdAt": "2026-05-27"
+    },
+    {
+      "id": 2,
+      "title": "Controle de frota",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 8000,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-07-01",
+      "createdAt": "2026-06-02"
+    },
+    {
+      "id": 3,
+      "title": "Portal do cliente",
+      "customerId": 9,
+      "contactEmail": "beatriz@modabella.com.br",
+      "value": 46500,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-07-15",
+      "createdAt": "2026-05-12"
+    },
+    {
+      "id": 4,
+      "title": "Assinatura eletrônica",
+      "customerId": 10,
+      "contactEmail": "gustavo@construtoraalicerce.com.br",
+      "value": 61000,
+      "stage": "proposal",
+      "probability": 60,
+      "expectedCloseDate": "2026-07-01",
+      "createdAt": "2026-05-31"
+    },
+    {
+      "id": 5,
+      "title": "Integração com e-commerce",
+      "customerId": 5,
+      "contactEmail": "juliana@agrovaleverde.com.br",
+      "value": 10500,
+      "stage": "proposal",
+      "probability": 70,
+      "expectedCloseDate": "2026-08-22",
+      "createdAt": "2026-06-06"
+    },
+    {
+      "id": 6,
+      "title": "App de força de vendas",
+      "customerId": 5,
+      "contactEmail": "juliana@agrovaleverde.com.br",
+      "value": 5500,
+      "stage": "new",
+      "probability": 15,
+      "expectedCloseDate": "2026-09-02",
+      "createdAt": "2026-06-29"
+    },
+    {
+      "id": 7,
+      "title": "Integração bancária",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 10500,
+      "stage": "qualified",
+      "probability": 35,
+      "expectedCloseDate": "2026-11-01",
+      "createdAt": "2026-09-06"
+    },
+    {
+      "id": 8,
+      "title": "Módulo de RH",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 53000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-10-25",
+      "createdAt": "2026-08-03"
+    },
+    {
+      "id": 9,
+      "title": "CRM para o comercial",
+      "customerId": 2,
+      "contactEmail": "carlos@calcadospassofirme.com.br",
+      "value": 54000,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-10-18",
+      "createdAt": "2026-08-24"
+    },
+    {
+      "id": 10,
+      "title": "Gestão de projetos",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 38500,
+      "stage": "proposal",
+      "probability": 75,
+      "expectedCloseDate": "2026-08-21",
+      "createdAt": "2026-06-17"
+    },
+    {
+      "id": 11,
+      "title": "Ponto de venda (PDV)",
+      "customerId": 11,
+      "contactEmail": "camila@farmaciavida.com.br",
+      "value": 22000,
+      "stage": "proposal",
+      "probability": 60,
+      "expectedCloseDate": "2026-08-11",
+      "createdAt": "2026-06-30"
+    },
+    {
+      "id": 12,
+      "title": "Ponto de venda (PDV)",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 4500,
+      "stage": "qualified",
+      "probability": 45,
+      "expectedCloseDate": "2026-09-19",
+      "createdAt": "2026-08-07"
+    },
+    {
+      "id": 13,
+      "title": "Implantação do ERP",
+      "customerId": 5,
+      "contactEmail": "juliana@agrovaleverde.com.br",
+      "value": 21500,
+      "stage": "proposal",
+      "probability": 75,
+      "expectedCloseDate": "2026-10-21",
+      "createdAt": "2026-07-25"
+    },
+    {
+      "id": 14,
+      "title": "Portal do cliente",
+      "customerId": 6,
+      "contactEmail": "lucas@technortesistemas.com.br",
+      "value": 19000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-08-07",
+      "createdAt": "2026-05-14"
+    },
+    {
+      "id": 15,
+      "title": "CRM para o comercial",
+      "customerId": 10,
+      "contactEmail": "gustavo@construtoraalicerce.com.br",
+      "value": 74500,
+      "stage": "new",
+      "probability": 15,
+      "expectedCloseDate": "2026-12-01",
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": 16,
+      "title": "Treinamento da equipe",
+      "customerId": 7,
+      "contactEmail": "patrícia@escolasabermais.com.br",
+      "value": 64500,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-09-06",
+      "createdAt": "2026-06-27"
+    },
+    {
+      "id": 17,
+      "title": "Integração com e-commerce",
+      "customerId": 1,
+      "contactEmail": "ana@padariapaodourado.com.br",
+      "value": 29500,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-11-02",
+      "createdAt": "2026-08-18"
+    },
+    {
+      "id": 18,
+      "title": "Portal do cliente",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 79500,
+      "stage": "proposal",
+      "probability": 60,
+      "expectedCloseDate": "2026-10-10",
+      "createdAt": "2026-09-07"
+    },
+    {
+      "id": 19,
+      "title": "Migração de dados",
+      "customerId": 1,
+      "contactEmail": "ana@padariapaodourado.com.br",
+      "value": 71500,
+      "stage": "qualified",
+      "probability": 30,
+      "expectedCloseDate": "2026-07-18",
+      "createdAt": "2026-05-13"
+    },
+    {
+      "id": 20,
+      "title": "Integração com e-commerce",
+      "customerId": 10,
+      "contactEmail": "gustavo@construtoraalicerce.com.br",
+      "value": 29500,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-12-06",
+      "createdAt": "2026-09-29"
+    },
+    {
+      "id": 21,
+      "title": "App de força de vendas",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 80000,
+      "stage": "qualified",
+      "probability": 40,
+      "expectedCloseDate": "2026-10-21",
+      "createdAt": "2026-08-02"
+    },
+    {
+      "id": 22,
+      "title": "Integração bancária",
+      "customerId": 2,
+      "contactEmail": "carlos@calcadospassofirme.com.br",
+      "value": 62500,
+      "stage": "proposal",
+      "probability": 75,
+      "expectedCloseDate": "2026-11-26",
+      "createdAt": "2026-09-06"
+    },
+    {
+      "id": 23,
+      "title": "Migração de dados",
+      "customerId": 5,
+      "contactEmail": "juliana@agrovaleverde.com.br",
+      "value": 16000,
+      "stage": "qualified",
+      "probability": 40,
+      "expectedCloseDate": "2026-11-06",
+      "createdAt": "2026-09-14"
+    },
+    {
+      "id": 24,
+      "title": "Automação de compras",
+      "customerId": 8,
+      "contactEmail": "ricardo@transportesrotasul.com.br",
+      "value": 5500,
+      "stage": "qualified",
+      "probability": 35,
+      "expectedCloseDate": "2026-11-20",
+      "createdAt": "2026-08-25"
+    },
+    {
+      "id": 25,
+      "title": "Gestão de projetos",
+      "customerId": 6,
+      "contactEmail": "lucas@technortesistemas.com.br",
+      "value": 6000,
+      "stage": "proposal",
+      "probability": 80,
+      "expectedCloseDate": "2026-10-26",
+      "createdAt": "2026-08-29"
+    },
+    {
+      "id": 26,
+      "title": "Relatórios gerenciais",
+      "customerId": 11,
+      "contactEmail": "camila@farmaciavida.com.br",
+      "value": 69000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-11-17",
+      "createdAt": "2026-09-12"
+    },
+    {
+      "id": 27,
+      "title": "Ponto de venda (PDV)",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 71000,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-09-28",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": 28,
+      "title": "Dashboard de vendas",
+      "customerId": 6,
+      "contactEmail": "lucas@technortesistemas.com.br",
+      "value": 27500,
+      "stage": "qualified",
+      "probability": 35,
+      "expectedCloseDate": "2026-10-19",
+      "createdAt": "2026-08-09"
+    },
+    {
+      "id": 29,
+      "title": "Emissão de NF-e",
+      "customerId": 12,
+      "contactEmail": "thiago@autopecasturbo.com.br",
+      "value": 69000,
+      "stage": "new",
+      "probability": 15,
+      "expectedCloseDate": "2026-10-12",
+      "createdAt": "2026-08-08"
+    },
+    {
+      "id": 30,
+      "title": "Implantação do ERP",
+      "customerId": 12,
+      "contactEmail": "thiago@autopecasturbo.com.br",
+      "value": 38500,
+      "stage": "proposal",
+      "probability": 75,
+      "expectedCloseDate": "2026-11-20",
+      "createdAt": "2026-09-28"
+    },
+    {
+      "id": 31,
+      "title": "CRM para o comercial",
+      "customerId": 4,
+      "contactEmail": "joão@mercadobompreco.com.br",
+      "value": 47500,
+      "stage": "qualified",
+      "probability": 40,
+      "expectedCloseDate": "2026-08-08",
+      "createdAt": "2026-07-09"
+    },
+    {
+      "id": 32,
+      "title": "Ponto de venda (PDV)",
+      "customerId": 4,
+      "contactEmail": "joão@mercadobompreco.com.br",
+      "value": 63000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-10-24",
+      "createdAt": "2026-09-09"
+    },
+    {
+      "id": 33,
+      "title": "Integração bancária",
+      "customerId": 6,
+      "contactEmail": "lucas@technortesistemas.com.br",
+      "value": 82500,
+      "stage": "proposal",
+      "probability": 80,
+      "expectedCloseDate": "2026-09-03",
+      "createdAt": "2026-08-14"
+    },
+    {
+      "id": 34,
+      "title": "Integração com e-commerce",
+      "customerId": 8,
+      "contactEmail": "ricardo@transportesrotasul.com.br",
+      "value": 87500,
+      "stage": "qualified",
+      "probability": 30,
+      "expectedCloseDate": "2026-09-16",
+      "createdAt": "2026-07-09"
+    },
+    {
+      "id": 35,
+      "title": "Integração bancária",
+      "customerId": 12,
+      "contactEmail": "thiago@autopecasturbo.com.br",
+      "value": 25500,
+      "stage": "new",
+      "probability": 15,
+      "expectedCloseDate": "2026-10-16",
+      "createdAt": "2026-08-15"
+    },
+    {
+      "id": 36,
+      "title": "CRM para o comercial",
+      "customerId": 2,
+      "contactEmail": "carlos@calcadospassofirme.com.br",
+      "value": 54000,
+      "stage": "new",
+      "probability": 20,
+      "expectedCloseDate": "2026-07-26",
+      "createdAt": "2026-06-26"
+    },
+    {
+      "id": 37,
+      "title": "Módulo financeiro",
+      "customerId": 12,
+      "contactEmail": "thiago@autopecasturbo.com.br",
+      "value": 19000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-09-18",
+      "createdAt": "2026-08-26"
+    },
+    {
+      "id": 38,
+      "title": "Migração de dados",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 81000,
+      "stage": "qualified",
+      "probability": 50,
+      "expectedCloseDate": "2026-08-27",
+      "createdAt": "2026-06-08"
+    },
+    {
+      "id": 39,
+      "title": "Migração de dados",
+      "customerId": 11,
+      "contactEmail": "camila@farmaciavida.com.br",
+      "value": 73000,
+      "stage": "won",
+      "probability": 100,
+      "expectedCloseDate": "2026-10-06",
+      "createdAt": "2026-07-08"
+    },
+    {
+      "id": 40,
+      "title": "Implantação do ERP",
+      "customerId": 3,
+      "contactEmail": "fernanda@clinicasorrisoleve.com.br",
+      "value": 86000,
+      "stage": "new",
+      "probability": 10,
+      "expectedCloseDate": "2026-12-26",
+      "createdAt": "2026-09-30"
+    }
+  ]
+}

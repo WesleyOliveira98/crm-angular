@@ -26,6 +26,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
+html:has(app-login) {
+  scrollbar-gutter: auto;
+}
+
 body {
   margin: 0;
   background: var(--paper);

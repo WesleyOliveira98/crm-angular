@@ -11,7 +11,6 @@ import { StageBadge } from '../../../shared/components/stage-badge/stage-badge';
   selector: 'app-opportunity-detail',
   imports: [RouterLink, CurrencyPipe, DatePipe, StageBadge],
   templateUrl: './opportunity-detail.html',
-  styleUrl: './opportunity-detail.scss',
 })
 export class OpportunityDetail {
   private service = inject(OpportunityService);

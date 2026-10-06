@@ -25,6 +25,11 @@ export const routes: Routes = [
         path: 'kanban',
         loadComponent: () => import('./features/kanban/kanban').then((m) => m.Kanban),
       },
+      {
+        path: 'customers',
+        loadChildren: () =>
+          import('./features/customers/customers.routes').then((m) => m.CUSTOMER_ROUTES),
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

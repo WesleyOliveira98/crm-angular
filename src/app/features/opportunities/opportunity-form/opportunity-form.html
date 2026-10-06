@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<form class="card form" [formGroup]="form" (ngSubmit)="save()">
+<form class="card form-grid" [formGroup]="form" (ngSubmit)="save()">
   <div class="field full">
     <label for="title">Título *</label>
     <input id="title" class="input" formControlName="title" placeholder="Ex.: Implantação do ERP" />
@@ -87,7 +87,7 @@
     }
   </div>
 
-  <div class="buttons full">
+  <div class="form-buttons full">
     <a class="btn" [routerLink]="id ? ['/opportunities', id] : '/opportunities'">Cancelar</a>
     <button class="btn btn-primary" type="submit" [disabled]="saving()">
       {{ saving() ? 'Salvando...' : 'Salvar' }}

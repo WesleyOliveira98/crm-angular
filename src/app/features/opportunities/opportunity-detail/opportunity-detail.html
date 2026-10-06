@@ -5,7 +5,7 @@
       <h1>{{ opportunity.title }}</h1>
       <p>{{ opportunity.customer?.company }}</p>
     </div>
-    <div class="buttons">
+    <div class="header-buttons">
       <button class="btn btn-danger" type="button" (click)="remove()">Excluir</button>
       <a class="btn btn-primary" [routerLink]="['/opportunities', opportunity.id, 'edit']"
         >Editar</a
@@ -13,10 +13,10 @@
     </div>
   </div>
 
-  <div class="grid">
+  <div class="detail-grid">
     <section class="card">
       <h2>Negociação</h2>
-      <dl>
+      <dl class="details">
         <dt>Estágio</dt>
         <dd><app-stage-badge [stage]="opportunity.stage" /></dd>
         <dt>Valor</dt>
@@ -35,7 +35,7 @@
     @if (opportunity.customer; as customer) {
       <section class="card">
         <h2>Cliente</h2>
-        <dl>
+        <dl class="details">
           <dt>Empresa</dt>
           <dd>
             <a [routerLink]="['/customers', customer.id]">{{ customer.company }}</a>

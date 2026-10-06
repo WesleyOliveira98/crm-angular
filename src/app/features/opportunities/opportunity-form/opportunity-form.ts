@@ -1,18 +1,18 @@
 import { Component, inject, signal } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { finalize } from 'rxjs';
 import { CustomerService } from '../../../core/services/customer.service';
 import { OpportunityService } from '../../../core/services/opportunity.service';
 import { ToastService } from '../../../core/services/toast.service';
+import { Customer } from '../../../shared/models/customer';
 import { Opportunity, OpportunityPayload, Stage, STAGES } from '../../../shared/models/opportunity';
 
 @Component({
   selector: 'app-opportunity-form',
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './opportunity-form.html',
-  styleUrl: './opportunity-form.scss',
 })
 export class OpportunityForm {
   private fb = inject(FormBuilder);
@@ -24,7 +24,9 @@ export class OpportunityForm {
   readonly stages = STAGES;
   readonly id = Number(this.route.snapshot.paramMap.get('id')) || null;
 
-  customers = toSignal(inject(CustomerService).list(), { initialValue: [] });
+  private customerService = inject(CustomerService);
+
+  customers = signal<Customer[]>([]);
   saving = signal(false);
   private current?: Opportunity;
 
@@ -43,6 +45,15 @@ export class OpportunityForm {
   });
 
   constructor() {
+    this.customerService.list().subscribe((customers) => {
+      this.customers.set(customers);
+
+      const customerId = Number(this.route.snapshot.queryParamMap.get('customerId'));
+      if (customerId) {
+        this.form.controls.customerId.setValue(customerId);
+      }
+    });
+
     if (this.id) {
       this.service.get(this.id).subscribe((opportunity) => {
         this.current = opportunity;

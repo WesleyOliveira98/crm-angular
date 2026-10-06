@@ -7,3 +7,5 @@ export interface Customer {
   city: string;
   createdAt: string;
 }
+
+export type CustomerPayload = Omit<Customer, 'id'>;

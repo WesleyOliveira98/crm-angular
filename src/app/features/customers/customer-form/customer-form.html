@@ -1,0 +1,52 @@
+<div class="page-header">
+  <div>
+    <h1>{{ id ? 'Editar cliente' : 'Novo cliente' }}</h1>
+    <p>Os campos marcados com * são obrigatórios.</p>
+  </div>
+</div>
+
+<form class="card form-grid" [formGroup]="form" (ngSubmit)="save()">
+  <div class="field full">
+    <label for="company">Empresa *</label>
+    <input id="company" class="input" formControlName="company" />
+    @if (showError('company', 'required')) {
+      <span class="error">Informe o nome da empresa.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="name">Contato *</label>
+    <input id="name" class="input" formControlName="name" />
+    @if (showError('name', 'required')) {
+      <span class="error">Informe o nome do contato.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="email">E-mail *</label>
+    <input id="email" class="input" type="email" formControlName="email" />
+    @if (showError('email', 'required')) {
+      <span class="error">Informe o e-mail.</span>
+    }
+    @if (showError('email', 'email')) {
+      <span class="error">Digite um e-mail válido.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="phone">Telefone</label>
+    <input id="phone" class="input" formControlName="phone" placeholder="(16) 99999-9999" />
+  </div>
+
+  <div class="field">
+    <label for="city">Cidade</label>
+    <input id="city" class="input" formControlName="city" />
+  </div>
+
+  <div class="form-buttons full">
+    <a class="btn" [routerLink]="id ? ['/customers', id] : '/customers'">Cancelar</a>
+    <button class="btn btn-primary" type="submit" [disabled]="saving()">
+      {{ saving() ? 'Salvando...' : 'Salvar' }}
+    </button>
+  </div>
+</form>

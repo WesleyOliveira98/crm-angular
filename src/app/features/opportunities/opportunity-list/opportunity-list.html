@@ -44,7 +44,11 @@
           <td>
             <a [routerLink]="['/opportunities', opportunity.id]">{{ opportunity.title }}</a>
           </td>
-          <td>{{ opportunity.customer?.company }}</td>
+          <td>
+            <a class="muted-link" [routerLink]="['/customers', opportunity.customerId]">
+              {{ opportunity.customer?.company }}
+            </a>
+          </td>
           <td><app-stage-badge [stage]="opportunity.stage" /></td>
           <td class="right money">{{ opportunity.value | currency }}</td>
           <td class="right mono">{{ opportunity.probability }}%</td>

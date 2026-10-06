@@ -1,0 +1,71 @@
+@if (data(); as data) {
+  <div class="page-header">
+    <div>
+      <a class="back" routerLink="/customers">← Clientes</a>
+      <h1>{{ data.customer.company }}</h1>
+      <p>{{ data.customer.city }}</p>
+    </div>
+    <div class="header-buttons">
+      <a class="btn" [routerLink]="['/customers', data.customer.id, 'edit']">Editar</a>
+      <a
+        class="btn btn-primary"
+        routerLink="/opportunities/new"
+        [queryParams]="{ customerId: data.customer.id }"
+      >
+        Nova oportunidade
+      </a>
+    </div>
+  </div>
+
+  <div class="detail-grid">
+    <section class="card">
+      <h2>Dados do cliente</h2>
+      <dl class="details">
+        <dt>Contato</dt>
+        <dd>{{ data.customer.name }}</dd>
+        <dt>E-mail</dt>
+        <dd>{{ data.customer.email }}</dd>
+        <dt>Telefone</dt>
+        <dd class="mono">{{ data.customer.phone }}</dd>
+        <dt>Cliente desde</dt>
+        <dd>{{ data.customer.createdAt | date: 'dd/MM/yyyy' }}</dd>
+        <dt>Oportunidades</dt>
+        <dd class="mono">{{ data.opportunities.length }}</dd>
+        <dt>Total ganho</dt>
+        <dd class="money">{{ totalWon() | currency }}</dd>
+      </dl>
+    </section>
+  </div>
+
+  <h2 class="section-title">Oportunidades</h2>
+  <div class="table-wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Estágio</th>
+          <th class="right">Valor</th>
+          <th>Fechamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (opportunity of data.opportunities; track opportunity.id) {
+          <tr>
+            <td>
+              <a [routerLink]="['/opportunities', opportunity.id]">{{ opportunity.title }}</a>
+            </td>
+            <td><app-stage-badge [stage]="opportunity.stage" /></td>
+            <td class="right money">{{ opportunity.value | currency }}</td>
+            <td>{{ opportunity.expectedCloseDate | date: 'dd/MM/yyyy' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    @if (data.opportunities.length === 0) {
+      <p class="empty">Esse cliente ainda não tem oportunidades.</p>
+    }
+  </div>
+} @else {
+  <p class="loading">Carregando cliente...</p>
+}
